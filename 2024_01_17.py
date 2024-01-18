@@ -1,11 +1,11 @@
-#1543
-s = "aba"
-doc = "ababababa"
-for i in range(len(doc)):
-    for j in range(len(s)):
-        if doc[i] == s[j]:
-
-#2798
-
-# 질문
-# 파이썬다운할때 path
+#2798 블랙잭
+import itertools
+n,m = map(int, input().split())
+nums = list(map(int,input().split()))
+nCr = itertools.combinations(nums, 3)
+nCr = list(nCr)
+cards = []
+for i in nCr:
+    if sum(i) <= m:
+        cards.append(sum(i))
+print(max(cards))
