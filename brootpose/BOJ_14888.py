@@ -18,16 +18,16 @@ def calc(opers,nums):
     op = opers[0]
     num = nums[0]
     if op == 0:
-        return num + calc(opers[1:],nums[1:])
+        return calc(opers[1:],nums[1:]) +  num
     elif op == 1:
-        return num - calc(opers[1:],nums[1:])
+        return calc(opers[1:],nums[1:]) -  num
     elif op == 2:
-        return num * calc(opers[1:],nums[1:])
+        return calc(opers[1:],nums[1:]) *  num
     elif op == 3:
-        return num // calc(opers[1:],nums[1:])
-
+        return calc(opers[1:],nums[1:]) // num
 max = -int(1e9)
 min = int(1e9)
+
 for op_perm in op_perms:
     result = calc(op_perm,nums)
     if result > max:
